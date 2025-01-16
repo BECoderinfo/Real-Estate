@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* background: #05275962; */
+            user-select: none ! important;
+
+        }
+
+        .container {
+            display: flex;
+            width: 700px;
+            height: 400px;
+            background: #9bd7ff67;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-section,
+        .right-section {
+            width: 50%;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .left-section {
+            background-image:linear-gradient(rgba(5, 39, 89, 0) 0%, rgba(5, 39, 89, 0.411) 50%), url('https://t4.ftcdn.net/jpg/00/91/76/65/360_F_91766520_7FTN5nVF20fYYGQWujgTJt6QcrjkRBrP.jpg');
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .toggle-btn {
+            background: #e76f51;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 300px;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .form-container form {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .form-container form.active {
+            display: flex;
+        }
+
+        .form-container input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-container button {
+            background: #264653;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h2>Welcome</h2>
+            <p>Join us and start your journey today.</p>
+            <button id="toggleBtn" class="toggle-btn">Sign Up</button>
+        </div>
+        <div class="right-section">
+            <div class="form-container">
+                <form id="loginForm" class="active">
+                    <h2>Login</h2>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <form id="signupForm">
+                    <h2>Sign Up</h2>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById("toggleBtn");
+            const loginForm = document.getElementById("loginForm");
+            const signupForm = document.getElementById("signupForm");
+
+            toggleBtn.addEventListener("click", function () {
+                if (loginForm.classList.contains("active")) {
+                    loginForm.classList.remove("active");
+                    signupForm.classList.add("active");
+                    toggleBtn.textContent = "Login";
+                } else {
+                    signupForm.classList.remove("active");
+                    loginForm.classList.add("active");
+                    toggleBtn.textContent = "Sign Up";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
